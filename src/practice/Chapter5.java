@@ -1,22 +1,26 @@
 package practice;
 
-import java.util.Set;
-import java.util.TreeSet;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Chapter5 {
 
 	public static void main(String[] args) {
 		// プログラムを作成
-		Task t = new Task();
-		Set<String> test = new TreeSet<String>();
-		test.add(t.s1);
-		test.add(t.s2);
-		test.add(t.s3);
-		test.add(t.s4);
-		test.add(t.s5);
 
-		for (String g : test) {
-			System.out.println(g);
+		List<Task> taskList = new ArrayList<>();
+		taskList.add(new Task(LocalDate.of(2021, 10, 21), " 牛乳を買う。"));
+		taskList.add(new Task(LocalDate.of(2021, 9, 15), " ○○社面談。"));
+		taskList.add(new Task(LocalDate.of(2021, 12, 4), " 手帳を買う。"));
+		taskList.add(new Task(LocalDate.of(2021, 8, 10), " 散髪に行く。"));
+		taskList.add(new Task(LocalDate.of(2021, 11, 9), " スクールの課題を解く。"));
+
+		Collections.sort(taskList);
+
+		for (Task g : taskList) {
+			System.out.println(g.getDate() + ":" + g.getTask());
 		}
 	}
 }
